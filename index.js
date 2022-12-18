@@ -3,6 +3,7 @@ let imageInput = document.querySelector("#image-input");
 let button = document.querySelector("button");
 let form = document.querySelector("form");
 let projectID = 1;
+let imageID = 1;
 
 
 let projectInfo = {};
@@ -90,6 +91,7 @@ function addProject(event) {
     
       }
       
+
 form.addEventListener("submit", addProject); 
 
 grid.addEventListener("click", chooseItem);
