@@ -1,39 +1,25 @@
 let grid = document.querySelector(".grid");
 let imageInput = document.querySelector("#image-input");
 let button = document.querySelector("button");
-
 let form = document.querySelector("form");
-let imageID = 1;
 let projectID = 1;
 
-/*
-function handleSubmit(event) {
-  event.preventDefault();
-  if (imageInput.value) {
-    let img = document.createElement("img");
-    img.src = imageInput.value;
-    img.id = imageID;
-    grid.appendChild(img);
-    imageID++;
-  }
-}
-*/
+
 let projectInfo = {};
 let allProjectInfo = [];
 
+//ADD PROJECT TO PORTFOLIO GRID
 function addProject(event) {
   event.preventDefault();
-  
-  uploadImg();
+
   let formItems = event.target.elements;
   
-  //NB: refers to name tag in HTML
-  //use event.target to capture values submitted in form
+  //store userinput in var's
   let projectImage = formItems.image.value;
   let projectTitle = formItems.title.value;
   let projectDescription = formItems.description.value;
 
-  //create template project object, including ID
+  //create project object, including ID
   let projectInfo = {
     id: projectID,
     title: projectTitle,
@@ -41,7 +27,7 @@ function addProject(event) {
     image: projectImage
   };
 
-  //use submitted form values to populate template project object
+  //if at least 1 of user input values submitted store in project object
   if (projectImage || projectTitle || projectDescription) {
     projectInfo.id = projectID;
     projectInfo.title = projectTitle;
@@ -49,30 +35,36 @@ function addProject(event) {
     projectInfo.image = projectImage;
   }
 
-  //push objects into array and ++ID
+  //push project object into array and ++ID for each object added
   allProjectInfo.push(projectInfo);
   projectID++;
+
+
+  uploadImg();
   //form.reset();
 }
 
+//submitted url link triggers creation new image element and assigns url to img.src
   function uploadImg() {
     if (imageInput.value) {
       let img = document.createElement("img");
       img.src = imageInput.value;
       img.id = imageID;
       grid.appendChild(img);
-      imageID++;
     }
   }
 
+
+//WHEN A PROJECT IMG CLICKED, CREATES AND POPULATES FEATURED SECTION
   function chooseItem(event) {
       event.preventDefault();
       //grab id of item clicked if image
       if (event.target.tagName === "IMG") {
       let selectedID = event.target.id;
 
-      console.log(`This is the image id:${selectedID}`)
-      // loop to find where imageID = projectID and pass through function
+      //console.log(`This is the image id:${selectedID}`)
+
+      // loop to find where selectedID = projectID and pass through featureProject function
         for (let project of allProjectInfo) {
           if (project.id == selectedID) {
             let clickedProject = project;
@@ -98,10 +90,6 @@ function addProject(event) {
     
       }
       
-//form.addEventListener("submit", handleSubmit);
-
 form.addEventListener("submit", addProject); 
-
-//grid.addEventListener("click", featureImage);
 
 grid.addEventListener("click", chooseItem);
