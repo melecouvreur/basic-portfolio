@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background: white;
+}
+
+header {
+  text-align: center;
+  padding: 5px;
+}
+
+.container {
+  background-color: white;
+  height: 80vh;
+  margin: 10px;
+}
+
+.featured {
+  display: hidden;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1;
+}
+
+#featured-clicked {
+  height: 30%;
+  background-color: black;
+}
+
+#featured-img {
+  grid-column: 1;
+  height: 80%;
+  width: 100%;
+  padding: 20px;
+}
+
+#text {
+  grid-column: 2;
+  display: block;
+  font-style: italic;
+  color: black;
+  padding: 5px;
+}
+
+#featured-t {
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+#featured-p {
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.grid {
+  height: 80%;
+  background-color: grey;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  /*
+  grid-template-rows: repeat(3, 1fr);
+  */
+}
+
+.portfolio {
+  background-color: black;
+  display: grid;
+  grid-template-rows: 4;
+}
+
+#row-one {
+  grid-row: 1;
+  margin: auto;
+  color: aliceblue;
+  padding-top: 10px;
+}
+
+#row-two {
+  grid-row: 2;
+  display: flex;
+  margin: auto;
+  justify-content: space-evenly;
+  min-width: 80%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#title {
+  display: block;
+  width: 100%;
+}
+
+#image-url {
+  display: block;
+  width: 100%;
+}
+
+#row-three {
+  grid-row: 3;
+  margin: auto;
+}
+
+#project-description {
+  width: 100%;
+  height: 70px;
+}
+
+#row-four {
+  padding: 15px;
+  margin: auto;
+  grid-row: 4;
+}
+
+img {
+  height: 70%;
+  width: 75%;
+  margin: auto;
+}
+
+form {
+  text-align: center;
+  display: block;
+}
+
+label {
+  font-family: 'Courier New';
+  color: aliceblue;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+}
+
+input {
+  display: block;
+  width: 80%;
+  height: 30px;
+  margin: auto;
+  font-family: 'Courier New', Courier, monospace ;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+
+
